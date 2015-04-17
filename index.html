@@ -4,7 +4,7 @@
 <!--  hacer conos, cilindros y superficies de bezier -->
 
 <head> 
-<title>TP3</title> 
+<title>WebGL 3D Engine</title> 
 <meta http-equiv="content-type" content="text/html; charset=utf-8"> 
  
 <script type="text/javascript" src="glMatrix.js"></script>
@@ -175,10 +175,10 @@
 			gl.viewportWidth = canvas.width;
 			gl.viewportHeight = canvas.height;
 		} catch (e) {
-			alert("No es posible inicializar WebGL");
+			alert("It's not possible to initialize WebGL");
 		}
 		if (!gl) {
-			alert("No es posible inicializar WebGL");
+			alert("It's not possible to initialize WebGL");
 		}
 	}
  
@@ -238,9 +238,9 @@
 
 		GUIMode = mode;
 		if (GUIMode === false)
-			setStatus("Presionar E para cambiar a modo navegación");
+			setStatus("Press E for navigation mode");
 		else
-			setStatus("Presionar E para cambiar a modo edición");
+			setStatus("Press E for edition mode");
 
 		lightPosX.disabled = GUIMode;
 		lightPosY.disabled = GUIMode;
@@ -318,7 +318,7 @@
 
 </head> 
 	<body onload="webGLStart();">
-		<h1>TP3 - Escena 3D</h1>
+		<h1>WebGL 3D Engine</h1>
 		<hr/><br>
 
 		<table style="border-spacing:20px; border-style:none">
@@ -333,14 +333,16 @@
 									onmousedown="handleMouseDown(event);"
 									onmousemove="handleMouseMove(event);">
 								</canvas>
+								<br>
+								Click on the canvas to move the camera. Press <b>AWSD</b> to move around.
 							</td>
 							<td style="vertical-align:top">
 								<!-- tabla atributos de la luz -->
 								<table>
 									<!-- titulo -->
-									<tr><td colspan="2"><b>Atributos de la luz</b><hr/></td></tr>
+									<tr><td colspan="2"><b>Light attributes</b><hr/></td></tr>
 									<!-- subtitulo -->
-									<tr><td><i>Posici&oacute;n</i></td></tr>
+									<tr><td><i>Position</i></td></tr>
 									<tr style="vertical-align:top">
 										<td colspan="2">
 											<table>
@@ -361,12 +363,12 @@
 									</tr>
 									<tr height="10"></tr>
 									<!-- subtitulo -->
-									<tr><td><i>Tipos de iluminaci&oacute;n</i></td></tr>
+									<tr><td><i>Illumination effects</i></td></tr>
 									<tr style="vertical-align:top">
 										<td>
-											<input type="checkbox" onclick="changed=true;" id="ambient" disabled="disabled" checked />Ambiente<br/>
-											<input type="checkbox" onclick="changed=true;" id="diffuse" disabled="disabled" checked />Difusa<br/>
-											<input type="checkbox" onclick="changed=true;" id="specular" disabled="disabled" checked />Especular<br/>
+											<input type="checkbox" onclick="changed=true;" id="ambient" disabled="disabled" checked />Ambience<br/>
+											<input type="checkbox" onclick="changed=true;" id="diffuse" disabled="disabled" checked />Diffuse<br/>
+											<input type="checkbox" onclick="changed=true;" id="specular" disabled="disabled" checked />Specular<br/>
 										</td>
 										<td style="text-align:right">
 											<math>

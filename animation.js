@@ -32,7 +32,7 @@
 
 	function handleKeyDown(event) {
 		currentlyPressedKeys[event.keyCode] = true;
-		console.log(event.keyCode);
+		//console.log(event.keyCode);
 
 		// si se presionan las teclas arriba o abajo, cancelo el evento (para evitar el scroll vertical)
 		if (event.keyCode == 38 || event.keyCode == 40) 
@@ -139,12 +139,12 @@
 			}
 			if (camera.yawRate != 0) {
 				camera.yaw += camera.yawRate * elapsed;
-				console.log(camera.yaw);
+				//console.log(camera.yaw);
 				changed = true;
 			}
 			if (camera.pitchRate != 0) {
 				camera.pitch += camera.pitchRate * elapsed;
-				console.log(camera.pitch);
+				//console.log(camera.pitch);
 				changed = true;
 			}
 

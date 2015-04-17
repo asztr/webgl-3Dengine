@@ -70,7 +70,7 @@
 	}
 
 	function concatFloat32Array(array, elem) {
-		var a = Float32Array(array.length+1);
+		var a = new Float32Array(array.length+1);
 		for (var i = 0; i < array.length; i++) {
 			a[i] = array[i];
 		}

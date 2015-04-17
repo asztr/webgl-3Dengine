@@ -124,8 +124,9 @@
 	};
 
 	//camara y escena
-	var camera = new Camera();
 	var escena;
+	var camera = new Camera();
+	camera.maxWalkingSpeed = 0.003;
 
 	//matrices de perspectiva y modelview?
 	var mvMatrix = mat4.create();
@@ -235,6 +236,7 @@
 		var lightAmbientInput = document.getElementById("ka");
 		var lightDiffuseInput = document.getElementById("kd");
 		var lightSpecularInput = document.getElementById("ks");
+		var walkingspeedInput = document.getElementById("walkingspeed");
 
 		GUIMode = mode;
 		if (GUIMode === false)
@@ -251,8 +253,14 @@
 		lightAmbientInput.disabled = GUIMode;
 		lightDiffuseInput.disabled = GUIMode;
 		lightSpecularInput.disabled = GUIMode;
+		walkingspeedInput.disabled = GUIMode;
 	}
 
+	function getCameraAttributes() {
+		var walkingspeedInput = document.getElementById("walkingspeed");
+		walkingspeedInput.value = camera.maxWalkingSpeed;
+	}
+	
 	function getLightAttributes() {
 		var lightPosX = document.getElementById("lightx");
 		var lightPosY = document.getElementById("lighty");
@@ -289,6 +297,11 @@
 		changed = true;
 		dibujarEscena();
 	}
+	
+	function changeWalkingSpeed() {
+		var walkingspeedInput = document.getElementById("walkingspeed");
+		camera.maxWalkingSpeed = walkingspeedInput.value;
+	}
 
 	function webGLStart() {
 		var canvas = document.getElementById("canvas");
@@ -300,6 +313,7 @@
 		initEscena();
 		setGUIMode(true);
 		getLightAttributes();
+		getCameraAttributes();
 		escena.draw();
 		dibujarEscena();
 
@@ -408,6 +422,14 @@
 											</math>
 											<input type="number" id="ks" value="0" style="width:50px" disabled="disabled" onchange="changeLight()" /></input></td>
 									</tr>
+									<tr height="60"></tr>
+									<tr>
+										<td>
+											<b>Walking speed</b>
+											<input type"number" id="walkingspeed" value="0" style="width:50px" disabled="disabled" onchange="changeWalkingSpeed()" />
+											</input>
+										</td>
+									<tr>
 								</table>
 							</td>
 						</tr>

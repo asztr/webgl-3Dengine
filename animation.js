@@ -7,6 +7,7 @@
 		this.yaw = 0;
 		this.yawRate = 0;
 
+		this.maxWalkingSpeed = 0;
 		this.speed = 0;
 		this.sideSpeed = 0;
 		
@@ -65,17 +66,17 @@
 			}
 
 			if (currentlyPressedKeys[65]) { // A key
-				camera.sideSpeed = 0.003;
+				camera.sideSpeed = camera.maxWalkingSpeed;
 			} else if (currentlyPressedKeys[68]) { // D key
-				camera.sideSpeed = -0.003;
+				camera.sideSpeed = -camera.maxWalkingSpeed;
 			} else {
 				camera.sideSpeed = 0;
 			}
 
 			if (currentlyPressedKeys[38] || currentlyPressedKeys[87]) { // Up cursor key or W
-				camera.speed = 0.003;
+				camera.speed = camera.maxWalkingSpeed;
 			} else if (currentlyPressedKeys[40] || currentlyPressedKeys[83]) { // Down cursor key or S
-				camera.speed = -0.003;
+				camera.speed = -camera.maxWalkingSpeed;
 			} else {
 				camera.speed = 0;
 			}

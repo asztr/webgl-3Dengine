@@ -83,7 +83,7 @@
 		laNave.rotateZ(deg2rad(60));
 		escena.addComponent(laNave);
 
-		var laNavePosta = loadModel("ncc1701D.json");
+		var laNavePosta = loadModel("http://rawgit.com/asztrajman/webgl-3Dengine/master/ncc1701D.json");
 		laNavePosta.rotateX(deg2rad(90));
 		laNavePosta.rotateY(deg2rad(-125));
 		laNavePosta.rotateZ(deg2rad(30));
